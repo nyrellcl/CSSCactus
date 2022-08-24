@@ -1,0 +1,210 @@
+@import "./base/base";
+
+@import "./colors/colors";
+
+.canvas{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $background;
+    width: 100%;
+    height: 100vh;
+    .circle{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 80vmin;//changes according to viewport of browser and screen orientation
+        height: 80vmin;
+        border-radius: 50%;
+        background: $circle;
+        .pot{
+            position: absolute;
+            border-bottom: 25vmin solid $pot;
+            border-left: 7vmin solid transparent;
+            border-right: 7vmin solid transparent;
+            height: 0;
+            width: 40vmin;
+            transform: rotate(180deg);
+            bottom: 15vmin;
+            border-radius: 2.5vmin;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 26vmin;
+                height: 1vmin;
+                background: #000;
+            }
+            .eyes{
+                position: absolute;
+                width: 4vmin;
+                height: 4vmin;
+                background: #000;
+                border-radius: 50%;
+                bottom: -15vmin;
+                right: 18vmin;
+                box-shadow: 13vmin 0 #000;// x, y, blur, color
+                animation: blink 1.5s infinite;
+                transition: animation  250ms ease-in-out;
+            }
+            .cheeks{
+                position: absolute;
+                width: 5vmin;
+                height: 2.5vmin;
+                background: red;
+                border-radius: 50%;
+                top: 9vmin;
+                left: 2vmin;
+                opacity: 20%;
+                box-shadow: 16vmin 0 red;
+            }
+            .mouth{
+                position: absolute;
+                width: 4vmin;
+                height: 4vmin;
+                border-radius: 50%;
+                background: #000;
+                top: 8vmin;
+                left: 10.5vmin;
+                background: transparent;
+                border-top: 1vmin solid #000; //border-top because the pot is upside down. normally would do border bottom
+
+            }
+        }
+        .cactus{
+            position: absolute;
+            width: 17vmin;
+            height: 30vmin;
+            background: $cactus;
+            border-radius: 45%;
+            top: 15vmin;
+            left: 25vmin;
+            border: 1vmin solid #000;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 5vmin;
+                height: 30vmin;
+                background: transparent;
+                border-radius: 50%;
+                border-right: 1vmin solid $cact-lines;
+                left: 6vmin;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                width: 5vmin;
+                height: 30vmin;
+                background: transparent;
+                border-radius: 50%;
+                border-left: 1vmin solid $cact-lines;
+                right: 6vmin;
+            }
+        }
+        .pricks{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 1vmin solid transparent;
+            border-right: 1vmin colid transparent;
+            border-bottom: 7vmin solid $cact-lines;
+            transform: rotate(-45deg);
+            &::before{
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 1vmin solid transparent;
+                border-right: 1vmin colid transparent;
+                border-bottom: 7vmin solid $cact-lines;
+                transform: rotate(90deg);
+                top: 5vmin;
+                left: 9vmin;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 1vmin solid transparent;
+                border-right: 1vmin colid transparent;
+                border-bottom: 7vmin solid $cact-lines;
+                top: 7vmin;
+                left: -10vmin;
+
+            }
+        }
+        .cactusSmall{
+            position: absolute;
+            width: 17vmin;
+            height: 20vmin;
+            background: $cactus;
+            border-radius: 45%;
+            border: 1vmin solid #000;
+            top: 25vmin;
+            right: 28vmin;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 5vmin;
+                height: 20vmin;
+                background: transparent;
+                border-radius: 50%;
+                border-right: 1vmin solid $cact-lines;
+                left: 6vmin;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                width: 5vmin;
+                height: 20vmin;
+                background: transparent;
+                border-radius: 50%;
+                border-left: 1vmin solid $cact-lines;
+                right: 6vmin;
+            }
+            .pricksRight{
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 1vmin solid transparent;
+                border-right: 1vmin colid transparent;
+                border-bottom: 7vmin solid $cact-lines;
+                transform: rotate(-45deg);
+                top: -2vmin;
+                left: -1vmin;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-left: 1vmin solid transparent;
+                    border-right: 1vmin colid transparent;
+                    border-bottom: 7vmin solid $cact-lines;
+                    transform: rotate(90deg);
+                    top: 10vmin;
+                    left: 9vmin;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-left: 1vmin solid transparent;
+                    border-right: 1vmin colid transparent;
+                    border-bottom: 7vmin solid $cact-lines;
+                    transform: rotate(60deg);
+                    top: 4vmin;
+                    left: 7vmin;
+                }
+            }
+        }
+    }
+    
+}
+
+@keyframes blink{
+    0%{transform: scale(1,0.1);}
+    100%{transform: scale(1,1);}
+}
